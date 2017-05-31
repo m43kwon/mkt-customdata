@@ -317,7 +317,9 @@
       "subnet2Prefix": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.addressPrefix]",
       "subnet0StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet0.startAddress]",
       "subnet1StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet1.startAddress]",
-      "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]"
+      "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]",
+      "bootstrap": "[steps('VMSeriesConfig').bootstrap]",
+      "customData": "[concat('storage-account=', steps('VMSeriesConfig').customstorageaccount, ',access-key=', steps('VMSeriesConfig').customaccesskey, ',container=', steps('VMSeriesConfig').customcontainer, ',blob=', steps('VMSeriesConfig').customblob)]"
     }
   }
 }
