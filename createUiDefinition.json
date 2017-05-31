@@ -196,6 +196,26 @@
             }
           },
           {
+            "name": "bootstrap",
+            "type": "Microsoft.Common.OptionsGroup",
+            "label": "Enable Bootstrap",
+            "defaultValue": "no",
+            "toolTip": "Enable passing of bootstrap data",
+            "constraints": {
+              "allowedValues": [
+                {
+                  "label": "yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "no",
+                  "value": "no"
+                }
+              ]
+            },
+            "visible": true
+          }
+          {
             "name": "vmSize",
             "type": "Microsoft.Compute.SizeSelector",
             "label": "Virtual machine size",
