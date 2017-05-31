@@ -223,7 +223,7 @@
             "toolTip": "Comma-separated string of customdata parameters",
             "constraints": {},
             "options": {},
-            "visible": true
+            "visible": "[equals(steps('VMSeriesConfig').bootstrap, 'yes')]"
           },
           {
             "name": "vmSize",
