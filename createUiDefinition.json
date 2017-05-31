@@ -216,6 +216,16 @@
             "visible": true
           },
           {
+            "name": "customdata",
+            "type": "Microsoft.Common.TextBox",
+            "label": "CustomData",
+            "defaultValue": "echo customData",
+            "toolTip": "Comma-separated string of customdata parameters",
+            "constraints": {},
+            "options": {},
+            "visible": true
+          },
+          {
             "name": "vmSize",
             "type": "Microsoft.Compute.SizeSelector",
             "label": "Virtual machine size",
