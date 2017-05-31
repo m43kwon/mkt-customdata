@@ -214,7 +214,7 @@
               ]
             },
             "visible": true
-          }
+          },
           {
             "name": "vmSize",
             "type": "Microsoft.Compute.SizeSelector",
