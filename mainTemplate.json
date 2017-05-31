@@ -15,6 +15,12 @@
        },
        "defaultValue": "0.0.0.0/0"
     },
+    "customData": {
+      "type": "string",
+      "metadata": {
+        "description": "String passed down to the Virtual Machine."
+      }
+    },
     "vmName": {
        "type": "string",
        "metadata": {
@@ -225,6 +231,17 @@
       },
       "defaultValue": "Standard_LRS"
     },
+    "bootstrap": {
+      "type": "string",
+      "defaultValue" : "no",
+      "allowedValues": [
+        "yes",
+        "no"
+      ],
+      "metadata": {
+        "description": "Pass bootstrap data to VM"
+      }
+    },
     "authenticationType": {
             "type": "string",
             "metadata": {
@@ -285,7 +302,7 @@
     "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-',parameters('PublicIPNewOrExisting'),'.json')]",
     "vnetSetupURL": "[concat(parameters('baseUrl'),'/vnet-', parameters('vnetNewOrExisting'),'.json')]",
     "setupNICsURL": "[concat(parameters('baseUrl'),'/setupNICS-', parameters('vnetNewOrExisting'),'.json')]",
-    "vmTemplateUrl": "[concat(parameters('baseUrl'), '/virtual-machine-', parameters('authenticationType'),'.json')]"
+    "vmTemplateUrl": "[concat(parameters('baseUrl'), '/virtual-machine-', parameters('authenticationType'),'-bs-', parameters('bootstrap'), '.json')]"
 
   },
   "resources": [
@@ -476,6 +493,9 @@
         "parameters": {
           "location": {
             "value": "[parameters('location')]"
+          },
+          "customData": {
+            "value": "[parameters('customData')]"
           },
           "vmName": {
             "value": "[parameters('vmName')]"
