@@ -200,7 +200,7 @@
             "type": "Microsoft.Common.OptionsGroup",
             "label": "Enable Bootstrap",
             "defaultValue": "no",
-            "toolTip": "Enable passing of bootstrap data",
+            "toolTip": "Bootstrap VM-Series using an Azure storage blob",
             "constraints": {
               "allowedValues": [
                 {
@@ -218,7 +218,7 @@
           {
             "name": "customstorageaccount",
             "type": "Microsoft.Common.TextBox",
-            "label": "Storage Account",
+            "label": "Storage Account Name",
             "toolTip": "Storage account containing bootstrap data",
             "constraints": {
                 "required": true
@@ -229,8 +229,8 @@
           {
             "name": "customaccesskey",
             "type": "Microsoft.Common.TextBox",
-            "label": "Access Key",
-            "toolTip": "Access key for Storage Account",
+            "label": "Storage Account Access Key",
+            "toolTip": "Storage account access key to read blob data privately",
             "constraints": {
                 "required": true
             },
@@ -251,8 +251,8 @@
           {
             "name": "customblob",
             "type": "Microsoft.Common.TextBox",
-            "label": "Blob",
-            "toolTip": "Bootstrap blob",
+            "label": "Bootstrap Blob Name",
+            "toolTip": "Full name of the tar.gz file containing bootstrap files",
             "constraints": {
                 "required": true
             },
