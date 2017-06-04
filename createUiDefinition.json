@@ -219,6 +219,7 @@
             "name": "customstorageaccount",
             "type": "Microsoft.Common.TextBox",
             "label": "Storage Account Name",
+            "defaultValue": "storage-account",
             "toolTip": "Storage account containing bootstrap data",
             "constraints": {
                 "required": true
@@ -230,6 +231,7 @@
             "name": "customaccesskey",
             "type": "Microsoft.Common.TextBox",
             "label": "Storage Account Access Key",
+            "defaultValue": "access-key",
             "toolTip": "Storage account access key to read blob data privately",
             "constraints": {
                 "required": true
@@ -241,6 +243,7 @@
             "name": "customcontainer",
             "type": "Microsoft.Common.TextBox",
             "label": "Container",
+            "defaultValue": "storage-container",
             "toolTip": "Container containing bootstrap blob",
             "constraints": {
                 "required": true
@@ -252,6 +255,7 @@
             "name": "customblob",
             "type": "Microsoft.Common.TextBox",
             "label": "Bootstrap Blob Name",
+            "defaultValue": "storage-blob",
             "toolTip": "Full name of the tar.gz file containing bootstrap files",
             "constraints": {
                 "required": true
