@@ -319,7 +319,7 @@
       "subnet1StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet1.startAddress]",
       "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]",
       "bootstrap": "[steps('VMSeriesConfig').bootstrap]",
-      "customData": "[concat('storage-account=', steps('VMSeriesConfig').customstorageaccount, ',access-key=', steps('VMSeriesConfig').customaccesskey, ',container=', steps('VMSeriesConfig').customcontainer, ',blob=', steps('VMSeriesConfig').customblob)]"
+      "customData": "[concat('storage-account=', coalesce(steps('VMSeriesConfig').customstorageaccount, 'storage-account'), ',access-key=', coalesce(steps('VMSeriesConfig').customaccesskey, 'access-key'), ',container=', coalesce(steps('VMSeriesConfig').customcontainer, 'storage-container'), ',blob=', coalesce(steps('VMSeriesConfig').customblob, 'storage-blob'))]"
     }
   }
 }
