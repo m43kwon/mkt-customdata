@@ -213,7 +213,7 @@
                 }
               ]
             },
-            "visible": true
+            "visible": "[equals(steps('VMSeriesConfig').imageVersion, 'latest')]"
           },
           {
             "name": "customstorageaccount",
@@ -318,7 +318,7 @@
       "subnet0StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet0.startAddress]",
       "subnet1StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet1.startAddress]",
       "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]",
-      "bootstrap": "[steps('VMSeriesConfig').bootstrap]",
+      "bootstrap": "[coalesce(steps('VMSeriesConfig').bootstrap, 'no')]",
       "customData": "[concat('storage-account=', coalesce(steps('VMSeriesConfig').customstorageaccount, 'storage-account'), ',access-key=', coalesce(steps('VMSeriesConfig').customaccesskey, 'access-key'), ',container=', coalesce(steps('VMSeriesConfig').customcontainer, 'storage-container'), ',blob=', coalesce(steps('VMSeriesConfig').customblob, 'storage-blob'))]"
     }
   }
