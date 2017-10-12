@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.16",
+  "contentVersion": "1.0.0.17",
   "parameters": {
     "location": {
       "type": "string",
@@ -33,6 +33,7 @@
       "type": "string",
       "allowedValues": [
         "latest",
+        "8.1.0",
         "8.0.0",
         "7.1.1"
       ],
@@ -265,7 +266,7 @@
   "variables": {
     "imagePublisher": "paloaltonetworks",
     "imageSku" : "byol",
-    "imageOffer" : "vmseries1",
+    "imageOffer" : "vmseries-azuresecuritycenter-preview",
     "nsgName" : "DefaultNSG",
     "nicName": "[concat(parameters('vmName'), '-', parameters('publicIPAddressName'), '-eth')]",
     "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
@@ -489,7 +490,7 @@
         "mode": "Incremental",
         "templateLink": {
           "uri": "[variables('vmTemplateUrl')]",
-          "contentVersion": "1.0.0.1"
+          "contentVersion": "1.0.0.2"
         },
         "parameters": {
           "location": {

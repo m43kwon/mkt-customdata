@@ -185,6 +185,10 @@
                   "value": "latest"
                 },
                 {
+                  "label": "8.1.0",
+                  "value": "8.1.0"
+                },
+                {
                   "label": "8.0.0",
                   "value": "8.0.0"
                 },
@@ -213,7 +217,7 @@
                 }
               ]
             },
-            "visible": "[equals(steps('VMSeriesConfig').imageVersion, 'latest')]"
+            "visible": "[or(equals(steps('VMSeriesConfig').imageVersion, 'latest'), equals(steps('VMSeriesConfig').imageVersion, '8.1.0'))]"
           },
           {
             "name": "customstorageaccount",
@@ -238,10 +242,10 @@
             "visible": "[equals(steps('VMSeriesConfig').bootstrap, 'yes')]"
           },
           {
-            "name": "customcontainer",
+            "name": "customfileshare",
             "type": "Microsoft.Common.TextBox",
-            "label": "Container",
-            "toolTip": "Container containing bootstrap blob",
+            "label": "File Share Name",
+            "toolTip": "File Share containing bootstrap files",
             "constraints": {
                 "required": true
             },
@@ -249,13 +253,10 @@
             "visible": "[equals(steps('VMSeriesConfig').bootstrap, 'yes')]"
           },
           {
-            "name": "customblob",
+            "name": "customsharedirectory",
             "type": "Microsoft.Common.TextBox",
-            "label": "Bootstrap Blob Name",
-            "toolTip": "Full name of the tar.gz file containing bootstrap files",
-            "constraints": {
-                "required": true
-            },
+            "label": "Share Directory",
+            "toolTip": "(OPTIONAL) Directory name under File Share containing bootstrap files",
             "options": {},
             "visible": "[equals(steps('VMSeriesConfig').bootstrap, 'yes')]"
           },
@@ -319,7 +320,7 @@
       "subnet1StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet1.startAddress]",
       "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]",
       "bootstrap": "[coalesce(steps('VMSeriesConfig').bootstrap, 'no')]",
-      "customData": "[concat('storage-account=', coalesce(steps('VMSeriesConfig').customstorageaccount, 'storage-account'), ',access-key=', coalesce(steps('VMSeriesConfig').customaccesskey, 'access-key'), ',container=', coalesce(steps('VMSeriesConfig').customcontainer, 'storage-container'), ',blob=', coalesce(steps('VMSeriesConfig').customblob, 'storage-blob'))]"
+      "customData": "[concat('storage-account=', coalesce(steps('VMSeriesConfig').customstorageaccount, 'None'), ',access-key=', coalesce(steps('VMSeriesConfig').customaccesskey, 'None'), ',file-share=', coalesce(steps('VMSeriesConfig').customfileshare, 'None'), ',share-directory=', coalesce(steps('VMSeriesConfig').customsharedirectory, 'None'))]"
     }
   }
 }
